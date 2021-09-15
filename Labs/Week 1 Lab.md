@@ -1,5 +1,14 @@
 # Week 1 Lab
 
+# Contents
+* Introduction
+* Downloading the git repositories
+* Setting up the data analysis environment
+* Setting up the Android Development environment
+* Connecting to the sensors
+* Collecting some test data
+* Obtaining the data from the phone
+
 # Introduction
 
 Welcome to the PDIoT course! You will experience the different facets of designing and 

@@ -2,30 +2,57 @@
 
 # Introduction
 
-Welcome to the PDIoT course! You will experience the different facets of designing and implementing a complex IoT system, from specification to demonstration of a prototype implementation, over the course of 10 weeks (Coursework 3). The practical work will be complemented by knowledge gained through personal research on foundational topics in Internet of Things to be distilled in two 3000-word essays (Coursework 1 and 2).
+Welcome to the PDIoT course! You will experience the different facets of designing and 
+implementing a complex IoT system, from data collection (Coursework 1) and system 
+specification to demonstration of a prototype implementation, over the course of 
+10 weeks (Coursework 3). The practical work will be complemented by knowledge gained
+through personal research on foundational topics in Internet of Things to be 
+distilled in one 3000-word essays (Coursework 2).
 
-Each student will be provided the following for Coursework 3:
-* A wearable Respeck sensor for activity data collection.
+Each student will be provided the following for Coursework 1 & 3:
+* A wearable Respeck sensor
+* Respeck accessories: plastic bags and MeFix tape
 * An mBed development board (NRF52-DK)
-* A Nordic Cube
+* A Nordic Cube (Thingy)
 * The on-line ARM mBed compiler and software development environment.
 
+You will need a smarphone running Android 6.0 or higher to run the apps needed for the course. 
+If no one from your team owns an Android phone we can provide you with one upon a special request.
 
-This year, your task will be to implement a human activity recognition system for a range of common activities listed below by analysing data from a wearable sensor using machine learning techniques and displaying the results in real-time in an Android application.
+
+This year, your task will be to implement a human activity recognition system for a range of 
+common activities listed below by analysing data from a wearable sensor using machine learning 
+techniques and displaying the results in real-time in an Android application.
 
 The activities to be recognised are:
-* Sitting/Standing
-*	Lying down
-*	Walking
-*	Running/Jogging
-*	Ascending and descending stairs
-*	Desk work (working at a computer, writing, etc.)
+* Sitting (straight, bent forward, bent backward)
+* Standing
+* Lying down (left, right, on the back, on the front)
+* Walking
+* Running/Jogging
+* Ascending and descending stairs
+* Desk work (working at a computer, writing, etc.)
+* General movement (sudden turns, bending down, getting up from chairs, anything else that doesn't qualify as an activity)
+* Falling (on the knees, on the back, on the sides)
 
-You will first collect data using the Respeck sensor and store the data in a common repository. Please refer to the PDIoT Data Collection Protocol [document](https://github.com/specknet/pdiot-practical/blob/master/PDIoT%20Data%20Collection%20Protocol.pdf). Then, you will develop data analysis and machine learning methods for identifying the different types of activities. You will then be exposed to embedded programming concepts and you will establish a connection between the Nordic Cube and your Android App.
+You will first collect data using two sensors:
+* the **Respeck** sensor, worn on the lower left ribcage, sampling accelerometer and gyroscope data at 25Hz 
+* the **Thingy** sensor, worn in the front right pocket of your trousers, sampling accelerometer, gyroscope and magnetometer data at 25Hz.
 
-After this point, you will have a choice between:
-* continuing with the machine learning development and concentrating on porting the algorithm on the phone for real-time HAR  
-* continuing with embedded system development of the application in the Cube sensor
+The data collection part comprises Coursework 1 and will be graded according to the quality of the data you collected.
+
+This data will be stored on a common repository where everyone in this class will have access to it
+for training their models. The data collection will mostly take place during Labs 1 and 2 where the Lab Demonstrator will
+make sure everyone is performing the activities correctly. The data collection protocol is provided in the Lab file.
+
+You will then develop data analysis and machine learning methods for identifying the different types of activities. 
+
+At this point you will have a choice between:
+* developing Machine Learning models using the Respeck data and running the models on the Android app
+* developing Machine Learning models using the Thingy data and running the models on the Thingy firmware.
+
+You will be briefly introduced to embedded programming concepts and you will be able to modify the Thingy
+firmware using the mBed development board.
 
 Use this week's tutorial to set up your development environment and to start collecting data.
 
@@ -133,20 +160,25 @@ It is recommended that you use Android Studio. The IDE can be downloaded from [h
 
 ## 2. Phone
 
-We use Xiaomi Redmi 4A or 5A phones and can lend one if required. Other phones may work for the practical but there can be Bluetooth compatibility issues with other devices.
+You need an Android phone running Android 6.0 or higher to complete this course. Teams will be formed
+so that at least one team mate has an Android phone. If there are still teams without a phone we can 
+provide you with one (Redmis).
 
-## 3. Testing the development environment and collecting data
+You should enable [Developer Options](https://developer.android.com/studio/debug/dev-options) on your phone to be able to install and debug via USB.
 
-In order to test that the environment has been set up properly, we will install the app on the phone and test to see if it receives data from the Respeck.
+## 3. Test-building the PDIoT App
+
+In order to test that the environment has been set up properly, we will build the app from Android Studio directly onto your smartphone.
 
 1. Open Android Studio
-2. Open the pdiot project which has been downloaded along with the rest of the files
+2. Open the pdiotapp project which has been downloaded along with the rest of the files
 3. Connect the phone to the computer using a USB cable.
-4. Press on the "Run App" button, which can be found in the top right-hand part of the Android Studio interface. This will compile the code and install the app on the phone.
-5. Unlock the phone and open the app.
-6. In the app, nevigate to the Connect Respeck activity, click Scan Respeck and scan the QR code on the back on your Respeck.
-7. The app should automatically connect to your Respeck.
-8. Go back to the main menu in the app, then to the Watch Live Processing page. You should now see live data coming from the Respeck.
+4. Check that you can see the phone being connected in the top right corner of Android Studio.
+5. Press on the "Run App" button, which can be found in the top right-hand part of the Android Studio interface. This will compile the code and install the app on the phone.
+6. Unlock the phone and open the app.
+7. If the app builds successfully and you can see the welcome screen of the app, your environment has been set up correctly.
+
+<img src="../Images/app_welcome_page.jpg" width="100" alt="welcome page"/>
 
 ## 9. Accessing the data
 The data is saved directly to the storage of the phone.

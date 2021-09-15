@@ -260,7 +260,7 @@ Similarly, you can tap the phone on the front side of the Thingy (here shown wit
 to get the Thingy ID autocompleted in the corresponding field.
 
 <p float="left">
-  <img src="../Images/nfc_thingy.jpeg" width="300" />
+  <img src="../Images/nfc_thingy.jpeg" width="500" />
   <img src="/Images/app_connect_page.jpg" width="300" /> 
 </p>
 
@@ -274,7 +274,7 @@ your app. Only one Respeck can be paired with an app at one time.
 
 <p float="left">
   <img src="/Images/app_connect_page.jpg" width="300" /> 
-  <img src="../Images/qr_respeck.jpeg" width="300" />
+  <img src="../Images/qr_respeck.jpg" width="500" />
 </p>
 
 ### Finding the Thingy ID
@@ -282,7 +282,7 @@ your app. Only one Respeck can be paired with an app at one time.
 Unfortunately the Nordic Cubes do not have a QR code attached to them but you can find their ID (MAC address) 
 on a label under the rubber case and NFC tag, as shown in the picture below.
 
-<img src="../Images/thingy_id.jpeg" width="300" alt="thingy ID" />
+<img src="../Images/thingy_id.jpeg" width="500" alt="thingy ID" />
 
 You need to manually input this code under the “Thingy ID” field. 
 
@@ -336,7 +336,7 @@ Secure the sensor to the chest using the MeFix tape provided.
 If you run out of tape you should let us know and we will provide you with more. 
 
 
-<img src="../Images/respeck_placement.png" width="300" alt="respeck placement" />
+<img src="../Images/respeck_placement.png" width="630" alt="respeck placement" />
 
 ### Thingy
 
@@ -364,7 +364,7 @@ Hit Start Recording when you are all set up.
 When you are done with a recording, hit *Stop Recording*. If something goes wrong during the 
 recording you can cancel it by pressing the *Cancel Recording* button.
 
-Check out the [instructions from Lab 2]() for the detailed list of activities and more information 
+Check out the [instructions from Lab 2](./Week%202%20Lab.md) for the detailed list of activities and more information 
 about how to redo recordings.
 
 For now, record a couple of activities of your choice.

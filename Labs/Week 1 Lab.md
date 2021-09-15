@@ -234,15 +234,164 @@ input the Respeck ID and the Thingy ID, respectively.
   <img src="/Images/app_connect_page.jpg" width="300" /> 
 </p>
 
+You have multiple choices for connecting the sensors:
+* NFC pairing if your phone supports NFC
+* Scanning the QR code of the Respeck
+* Manually input the IDs into the fields
+
+You should only need to pair these sensors once. Their IDs will be remembered by the app whenever you start it again. 
+
+Make sure the sensors are both on:
+* Respeck – move the sensor around and it should blink <span style="color:green">*green*</span> when it wakes up
+* Thingy – turn on using the switch on the bottom left edge and it should blink <span style="color:blue">*blue*</span> when it is on
+
+
 ### NFC Pairing
 
-## 9. Accessing the data
-The data is saved directly to the storage of the phone.
-To access it:
+If your phone supports NFC you can simply tap it against the white surface of the Respeck to 
+get the Respeck ID autocompleted in the corresponding field.
 
-1. Connect the phone to your computer.
-2. On the phone there should appear a popup/notification indicating that it has connected.
-3. Tap on the notification, this will present you with three options: Charge this device; Transfer files, Transfer photos (PTP).
-4. Select the Transfer files option.
-5. In your file browser you should now be able to find the phone and browse the files.
-6. The recorded files should be in the Internal Storage > Android > com.specknet.pdiotapp > files, but this might differ depending on the Android device you are using.
+<p float="left">
+  <img src="../Images/nfc_respeck.jpeg" width="300" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+Similarly, you can tap the phone on the front side of the Thingy (here shown without the rubber case) 
+to get the Thingy ID autocompleted in the corresponding field.
+
+<p float="left">
+  <img src="../Images/nfc_thingy.jpeg" width="300" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+### Scanning the Respeck QR code
+
+If your phone does not support NFC, you can scan the QR code of the Respeck instead.
+
+Every Respeck should have a QR code printed on its back. By pressing the Scan QR button, 
+a camera view will pop up and you will be able to scan the Respeck QR code to pair it to 
+your app. Only one Respeck can be paired with an app at one time. 
+
+<p float="left">
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+  <img src="../Images/qr_respeck.jpeg" width="300" />
+</p>
+
+### Finding the Thingy ID
+
+Unfortunately the Nordic Cubes do not have a QR code attached to them but you can find their ID (MAC address) 
+on a label under the rubber case and NFC tag, as shown in the picture below.
+
+<img src="../Images/thingy_id.jpeg" width="300" alt="thingy ID" />
+
+You need to manually input this code under the “Thingy ID” field. 
+
+### Establishing the connection
+Once you have entered both sensors’ IDs you will be able to click the button *Pair sensors* 
+to start the Bluetooth service and connect to the sensors. 
+
+If you ever need to change the sensors you can scan the IDs of the new sensors and click on 
+*Pair sensors* again. This will restart the service with the new IDs.
+If you have any connection issues, you can click on *Restart connection* to restart the 
+Bluetooth service forcefully. 
+
+The sensors have differently coloured LEDs that change with connection states.
+
+Thingy:
+* <span style="color:blue">*Blue*</span> light -> sensor ON and NOT CONNECTED
+* <span style="color:green">*Green*</span> light -> sensor ON and CONNECTED
+* No light -> sensor OFF
+
+Respeck:
+-	<span style="color:green">*Green*</span> light blink -> sensor ON and NOT CONNECTED
+-	<span style="color:blue">*Blue*</span> light -> sensor ON and CONNECTED
+-	<span style="color:red">*Red*</span> light -> sensor ON and DISCONNECTED
+
+So, when you connect to them, you have to watch out for the Thingy to blink 
+<span style="color:green">*green*</span> and the Respeck to blink <span style="color:blue">*blue*</span>.
+
+## 6. Viewing live data
+
+You can view incoming data from both sensors in the “Watch live processing” activity. 
+This will show you two live graphs of the accelerometer data from the Respeck (top) and 
+Thingy (bottom). Both sensors should run at 25Hz.
+
+<p float="left">
+  <img src="/Images/app_welcome_page.jpg" width="300" /> 
+  <img src="../Images/app_live_data.jpg" width="300" />
+</p>
+
+## 7. Sensor placement
+
+### Respeck
+
+Everyone will need to wear the sensors in the same places to ensure consistency across the data.
+
+The **Respeck** sensor should be placed on the **left lower ribcage**, with the blue half against the skin. 
+Make sure that the Respeck is first put into the small plastic bag provided. 
+You should be able to read the Respeck label when placing it on your chest – this ensures 
+the sensor is held the right way up, as shown in the figure below. 
+
+Secure the sensor to the chest using the MeFix tape provided. 
+If you run out of tape you should let us know and we will provide you with more. 
+
+
+<img src="../Images/respeck_placement.png" width="300" alt="respeck placement" />
+
+### Thingy
+
+The Thingy sensor should be placed in the front right pocket of your trousers, with the circle placed in the upper right 
+corner and the USB port facing downwards.
+
+<img src="../Images/thingy_placement.png" width="300" alt="thingy placement" />
+
+## 8. Recording data
+
+Finally, you can record data in the *Record Data* activity. 
+Choose the appropriate Sensor type and Activity and please use the university student 
+number as the subject ID. You can enter any additional notes you have about the upcoming 
+recording. 
+
+You will be able to verify that your sensors are running as expected by watching the 
+Live Data fields at the bottom of the screen.
+
+<p float="left">
+  <img src="/Images/app_welcome_page.jpg" width="300" /> 
+  <img src="../Images/app_record_data.jpg" width="300" />
+</p>
+
+Hit Start Recording when you are all set up.
+When you are done with a recording, hit *Stop Recording*. If something goes wrong during the 
+recording you can cancel it by pressing the *Cancel Recording* button.
+
+Check out the [instructions from Lab 2]() for the detailed list of activities and more information 
+about how to redo recordings.
+
+For now, record a couple of activities of your choice.
+
+## 9. Obtaining the recorded files
+Files are saved on the phone’s internal memory as csv files, on the path:
+`Android > app > data > com.specknet.pdiotapp > files > Filename.csv`
+
+You can access these files either by:
+* connecting your phone to a computer via USB and checking the internal memory, or
+* navigating to this folder from a file browser app on your phone and send them via Bluetooth, email, message etc. 
+
+Depending on which Android version you are running, you might need additional apps rather than 
+the pre-installed ones to get to these files. 
+From Android version 11, you should use apps like [Total Commander](https://play.google.com/store/apps/details?id=com.ghisler.android.TotalCommander&hl=en_GB&gl=US) 
+to view hidden system files. 
+Any Android version lower than 11 will allow you to see these files in a normal file browser 
+on your phone. 
+
+The filename is formatted as follows: 
+`{sensorType}_{studentID}_{activityType}_{timestamp}.csv`
+
+This should ensure that each file has a unique name among all students. 
+
+If you are using a Redmi phone provided by us and you need to obtain the files via USB you 
+might need to restart the phone to see the new files appear in the file browser on your computer.
+
+# Next up
+
+Head over to [Lab 2](./Week%202%20Lab.md) to start collecting data and learn how to analyse it.

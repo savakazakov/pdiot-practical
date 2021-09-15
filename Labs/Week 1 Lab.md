@@ -178,7 +178,7 @@ In order to test that the environment has been set up properly, we will build th
 6. Unlock the phone and open the app.
 7. If the app builds successfully and you can see the welcome screen of the app, your environment has been set up correctly.
 
-<img src="../Images/app_welcome_page.jpg" width="100" alt="welcome page"/>
+<img src="../Images/app_welcome_page.jpg" width="300" alt="welcome page"/>
 
 ## 9. Accessing the data
 The data is saved directly to the storage of the phone.

@@ -180,6 +180,62 @@ In order to test that the environment has been set up properly, we will build th
 
 <img src="../Images/app_welcome_page.jpg" width="300" alt="welcome page"/>
 
+## 4. Connecting to the Thingy through the Thingy:52 app
+
+### Obtaining the App
+We first need to connect to the Thingy through the official app in order to set its sampling rate to 25Hz.
+
+You can read more about the Thingy:52 [here](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-52). 
+It contains multiple types of sensors but we will be mainly working with its motion package.
+
+Download the Thingy:52 app from [Google Play Store](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrfthingy&hl=en_GB&gl=US).
+Alternatively, you can download the [code from GitHub](https://github.com/NordicSemiconductor/Android-Nordic-Thingy) and 
+build the app directly on your phone. 
+
+### Turning the Thingy on
+Remove the black rubber case of the Thingy. You will find a switch on its bottom side.
+
+When the Thingy is on, but not yet connected to any app, it will blink <span style="color:blue">*blue*</span>. When it's connected, it will blink <span style="color:green">*green*</span>.
+. 
+
+### Setting the motion processing unit frequency to 25Hz
+* Connect your Thingy to the app by following the instructions. 
+* Then, navigate to “Configuration” in the sidebar menu. 
+  
+<img src="../Images/app_thingy_config.jpg" width="300" alt="thingy config" />
+
+
+* Switch to the “Advanced” tab and find the “Motion processing unit frequency” under “Motion settings”. 
+
+<img src="../Images/app_mpu_set.jpg" width="300" alt="thingy mpu set" />
+
+* Set this to 25Hz and click “Confirm” to apply the setting. 
+
+<img src="../Images/app_mpu_confirm.jpg" width="300" alt="thingy mpu confirm" />
+
+Your Thingy is running at 25Hz now, to match the frequency of the Respeck sensor.
+
+### Disconnecting from the Thingy:52 app
+
+It's important to make sure that your sensors are not connected to any other apps or phones when you
+are trying to pair with them. Make sure you disconnect your Thingy from the Thingy:52 app by pressing the
+*Disconnect* button in the top right corner of the main screen.
+
+<img src="../Images/app_thingy_disconnect.jpg" width="300" alt="thingy disconnect" />
+
+## 5. Connecting to the sensors through the PDIoT app
+
+When you first start the application, you will need to connect it to the Respeck and the Thingy. 
+Do so by navigating to the *Connect Sensors* activity. Here you will see two fields where you need to 
+input the Respeck ID and the Thingy ID, respectively.
+
+<p float="left">
+  <img src="../Images/app_welcome_page.jpg" width="300" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+### NFC Pairing
+
 ## 9. Accessing the data
 The data is saved directly to the storage of the phone.
 To access it:

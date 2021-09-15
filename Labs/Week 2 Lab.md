@@ -234,7 +234,9 @@ Upload your data to the [shared repository](https://github.com/specknet/pdiot-da
 
 Be very careful with the upload. You will be graded automatically based on the files which you have uploaded.
 
-# Bla
+Do not delete or overwrite other people's data.
+
+# Introduction to Human Activity Recognition
 
 We have prepared a sample Jupyter Notebook to show you how to read the files stored by the Android app and make a simple accelerometer plot. You can find it [here](https://github.com/specknet/pdiot-practical/blob/master/Labs/Week%202%20-%20PDIoT%20data%20analysis.ipynb).
 
@@ -248,3 +250,18 @@ You should start developing your Human Activity Recognition model using a deep l
 For good tutorials on how to get started with Tensorflow we recommend:
 * the official [documentation](https://www.tensorflow.org/learn)
 * online tutorials for HAR, for example [this one](https://towardsdatascience.com/time-series-classification-for-human-activity-recognition-with-lstms-using-tensorflow-2-and-keras-b816431afdff). This doesn't mean that you need to implement the same machine learning methods, but it does provide insight into how an end-to-end HAR system would work.
+
+Things to remember:
+* HAR models need to be tested on completely unseen subjects due to intra-subject variability
+* Careful how you split your recordings 
+* Consider carefully how you want to develop your Machine Learning model - remember it needs to run on an Android Phone or
+directly on the sensor Firmware.
+  
+# Capturing the requirements of your application
+Start thinking about how your users might want to interact with your application. 
+
+Questions to consider:
+* How will you show your users the current activity?
+* Do you want all your processing to happen on the phone or do you want to include a backend component?
+* How much input will users have to give you?
+* What will the purpose of your app be? Simple activity tracking? Remote patient monitoring? 

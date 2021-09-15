@@ -212,6 +212,7 @@ Gather all your **clean** files and organise them into folders by subject ID. Ea
 your and your team mate's student ID. For example, if your team is made out of students *s1234567* and *s7654321*, then your
 upload folder structure should look like this:
 
+```
 .
 +-- s1234567
 |   +-- Respeck_s1234567_Sitting_{timestamp}.csv
@@ -227,6 +228,7 @@ upload folder structure should look like this:
 |   +-- Thingy_s7654321_Standing_{timestamp}.csv
 |   +-- Thingy_s7654321_Standing_{timestamp}.csv
 |   +-- ...
+```
 
 Upload your data to the [shared repository](https://github.com/specknet/pdiot-data).
 

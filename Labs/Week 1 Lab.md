@@ -252,7 +252,7 @@ If your phone supports NFC you can simply tap it against the white surface of th
 get the Respeck ID autocompleted in the corresponding field.
 
 <p float="left">
-  <img src="../Images/nfc_respeck.jpeg" width="300" />
+  <img src="../Images/nfc_respeck.jpeg" width="500" />
   <img src="/Images/app_connect_page.jpg" width="300" /> 
 </p>
 
@@ -274,7 +274,7 @@ your app. Only one Respeck can be paired with an app at one time.
 
 <p float="left">
   <img src="/Images/app_connect_page.jpg" width="300" /> 
-  <img src="../Images/qr_respeck.jpg" width="500" />
+  <img src="../Images/qr_respeck.jpg" width="300" />
 </p>
 
 ### Finding the Thingy ID

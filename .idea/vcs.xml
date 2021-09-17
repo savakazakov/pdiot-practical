@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pdiot-data" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pdiotapp" vcs="Git" />
   </component>
 </project>

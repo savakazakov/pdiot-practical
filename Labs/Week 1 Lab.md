@@ -1,31 +1,67 @@
 # Week 1 Lab
 
+# Contents
+* Introduction
+* Downloading the git repositories
+* Setting up the data analysis environment
+* Setting up the Android Development environment
+* Connecting to the sensors
+* Collecting some test data
+* Obtaining the data from the phone
+
 # Introduction
 
-Welcome to the PDIoT course! You will experience the different facets of designing and implementing a complex IoT system, from specification to demonstration of a prototype implementation, over the course of 10 weeks (Coursework 3). The practical work will be complemented by knowledge gained through personal research on foundational topics in Internet of Things to be distilled in two 3000-word essays (Coursework 1 and 2).
+Welcome to the PDIoT course! You will experience the different facets of designing and 
+implementing a complex IoT system, from data collection (Coursework 1) and system 
+specification to demonstration of a prototype implementation, over the course of 
+10 weeks (Coursework 3). The practical work will be complemented by knowledge gained
+through personal research on foundational topics in Internet of Things to be 
+distilled in one 3000-word essays (Coursework 2).
 
-Each student will be provided the following for Coursework 3:
-* A wearable Respeck sensor for activity data collection.
+Each student will be provided the following for Coursework 1 & 3:
+* A wearable Respeck sensor
+* Respeck accessories: plastic bags and MeFix tape
 * An mBed development board (NRF52-DK)
-* A Nordic Cube
+* A Nordic Cube (Thingy)
 * The on-line ARM mBed compiler and software development environment.
 
+You will need a smarphone running Android 6.0 or higher to run the apps needed for the course. 
+If no one from your team owns an Android phone we can provide you with one upon a special request.
 
-This year, your task will be to implement a human activity recognition system for a range of common activities listed below by analysing data from a wearable sensor using machine learning techniques and displaying the results in real-time in an Android application.
+
+This year, your task will be to implement a human activity recognition system for a range of 
+common activities listed below by analysing data from a wearable sensor using machine learning 
+techniques and displaying the results in real-time in an Android application.
 
 The activities to be recognised are:
-* Sitting/Standing
-*	Lying down
-*	Walking
-*	Running/Jogging
-*	Ascending and descending stairs
-*	Desk work (working at a computer, writing, etc.)
+* Sitting (straight, bent forward, bent backward)
+* Standing
+* Lying down (left, right, on the back, on the front)
+* Walking
+* Running/Jogging
+* Ascending and descending stairs
+* Desk work (working at a computer, writing, etc.)
+* General movement (sudden turns, bending down, getting up from chairs, anything else that doesn't qualify as an activity)
+* Falling (on the knees, on the back, on the sides)
 
-You will first collect data using the Respeck sensor and store the data in a common repository. Please refer to the PDIoT Data Collection Protocol [document](https://github.com/specknet/pdiot-practical/blob/master/PDIoT%20Data%20Collection%20Protocol.pdf). Then, you will develop data analysis and machine learning methods for identifying the different types of activities. You will then be exposed to embedded programming concepts and you will establish a connection between the Nordic Cube and your Android App.
+You will first collect data using two sensors:
+* the **Respeck** sensor, worn on the lower left ribcage, sampling accelerometer and gyroscope data at 25Hz 
+* the **Thingy** sensor, worn in the front right pocket of your trousers, sampling accelerometer, gyroscope and magnetometer data at 25Hz.
 
-After this point, you will have a choice between:
-* continuing with the machine learning development and concentrating on porting the algorithm on the phone for real-time HAR  
-* continuing with embedded system development of the application in the Cube sensor
+The data collection part comprises Coursework 1 and will be graded according to the quality of the data you collected.
+
+This data will be stored on a common repository where everyone in this class will have access to it
+for training their models. The data collection will mostly take place during Labs 1 and 2 where the Lab Demonstrator will
+make sure everyone is performing the activities correctly. The data collection protocol is provided in the Lab file.
+
+You will then develop data analysis and machine learning methods for identifying the different types of activities. 
+
+At this point you will have a choice between:
+* developing Machine Learning models using the Respeck data and running the models on the Android app
+* developing Machine Learning models using the Thingy data and running the models on the Thingy firmware.
+
+You will be briefly introduced to embedded programming concepts and you will be able to modify the Thingy
+firmware using the mBed development board.
 
 Use this week's tutorial to set up your development environment and to start collecting data.
 
@@ -123,7 +159,8 @@ that conda installed a dependency of numpy (a python package)...python!
 
 ### 4. Recommended setup
 * Conda environment with python 3.7
-* Jupyter notebooks + [Numpy](https://docs.scipy.org/doc/numpy-1.17.0/numpy-user-1.17.0.pdf) + [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html) + [Matplotlib](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) + [Tensorflow2](https://www.tensorflow.org/install).
+* Jupyter notebooks + [Numpy](https://docs.scipy.org/doc/numpy-1.17.0/numpy-user-1.17.0.pdf) +
+  [Pandas](https://pandas.pydata.org/) + [Matplotlib](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) + [Tensorflow2](https://www.tensorflow.org/install).
 
 # Android setup
 
@@ -133,28 +170,238 @@ It is recommended that you use Android Studio. The IDE can be downloaded from [h
 
 ## 2. Phone
 
-We use Xiaomi Redmi 4A or 5A phones and can lend one if required. Other phones may work for the practical but there can be Bluetooth compatibility issues with other devices.
+You need an Android phone running Android 6.0 or higher to complete this course. Teams will be formed
+so that at least one team mate has an Android phone. If there are still teams without a phone we can 
+provide you with one (Redmis).
 
-## 3. Testing the development environment and collecting data
+You should enable [Developer Options](https://developer.android.com/studio/debug/dev-options) on your phone to be able to install and debug via USB.
 
-In order to test that the environment has been set up properly, we will install the app on the phone and test to see if it receives data from the Respeck.
+## 3. Test-building the PDIoT App
+
+In order to test that the environment has been set up properly, we will build the app from Android Studio directly onto your smartphone.
 
 1. Open Android Studio
-2. Open the pdiot project which has been downloaded along with the rest of the files
+2. Open the pdiotapp project which has been downloaded along with the rest of the files
 3. Connect the phone to the computer using a USB cable.
-4. Press on the "Run App" button, which can be found in the top right-hand part of the Android Studio interface. This will compile the code and install the app on the phone.
-5. Unlock the phone and open the app.
-6. In the app, nevigate to the Connect Respeck activity, click Scan Respeck and scan the QR code on the back on your Respeck.
-7. The app should automatically connect to your Respeck.
-8. Go back to the main menu in the app, then to the Watch Live Processing page. You should now see live data coming from the Respeck.
+4. Check that you can see the phone being connected in the top right corner of Android Studio.
+5. Press on the "Run App" button, which can be found in the top right-hand part of the Android Studio interface. This will compile the code and install the app on the phone.
+6. Unlock the phone and open the app.
+7. If the app builds successfully and you can see the welcome screen of the app, your environment has been set up correctly.
 
-## 9. Accessing the data
-The data is saved directly to the storage of the phone.
-To access it:
+<img src="../Images/app_welcome_page.jpg" width="300" alt="welcome page"/>
 
-1. Connect the phone to your computer.
-2. On the phone there should appear a popup/notification indicating that it has connected.
-3. Tap on the notification, this will present you with three options: Charge this device; Transfer files, Transfer photos (PTP).
-4. Select the Transfer files option.
-5. In your file browser you should now be able to find the phone and browse the files.
-6. The recorded files should be in the Internal Storage > Android > com.specknet.pdiotapp > files, but this might differ depending on the Android device you are using.
+## 4. Connecting to the Thingy through the Thingy:52 app
+
+### Obtaining the App
+We first need to connect to the Thingy through the official app in order to set its sampling rate to 25Hz.
+
+You can read more about the Thingy:52 [here](https://www.nordicsemi.com/Products/Development-hardware/Nordic-Thingy-52). 
+It contains multiple types of sensors but we will be mainly working with its motion package.
+
+Download the Thingy:52 app from [Google Play Store](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrfthingy&hl=en_GB&gl=US).
+Alternatively, you can download the [code from GitHub](https://github.com/NordicSemiconductor/Android-Nordic-Thingy) and 
+build the app directly on your phone. 
+
+### Turning the Thingy on
+Remove the black rubber case of the Thingy. You will find a switch on its bottom side.
+
+When the Thingy is on, but not yet connected to any app, it will blink <span style="color:blue">*blue*</span>. When it's connected, it will blink <span style="color:green">*green*</span>.
+. 
+
+### Setting the motion processing unit frequency to 25Hz
+* Connect your Thingy to the app by following the instructions. 
+* Then, navigate to “Configuration” in the sidebar menu. 
+  
+<img src="../Images/app_thingy_config.jpg" width="300" alt="thingy config" />
+
+
+* Switch to the “Advanced” tab and find the “Motion processing unit frequency” under “Motion settings”. 
+
+<img src="../Images/app_mpu_set.jpg" width="300" alt="thingy mpu set" />
+
+* Set this to 25Hz and click “Confirm” to apply the setting. 
+
+<img src="../Images/app_mpu_confirm.jpg" width="300" alt="thingy mpu confirm" />
+
+Your Thingy is running at 25Hz now, to match the frequency of the Respeck sensor.
+
+### Disconnecting from the Thingy:52 app
+
+It's important to make sure that your sensors are not connected to any other apps or phones when you
+are trying to pair with them. Make sure you disconnect your Thingy from the Thingy:52 app by pressing the
+*Disconnect* button in the top right corner of the main screen.
+
+<img src="../Images/app_thingy_disconnect.jpg" width="300" alt="thingy disconnect" />
+
+## 5. Connecting to the sensors through the PDIoT app
+
+When you first start the application, you will need to connect it to the Respeck and the Thingy. 
+Do so by navigating to the *Connect Sensors* activity. Here you will see two fields where you need to 
+input the Respeck ID and the Thingy ID, respectively.
+
+<p float="left">
+  <img src="../Images/app_welcome_page.jpg" width="300" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+You have multiple choices for connecting the sensors:
+* NFC pairing if your phone supports NFC
+* Scanning the QR code of the Respeck
+* Manually input the IDs into the fields
+
+You should only need to pair these sensors once. Their IDs will be remembered by the app whenever you start it again. 
+
+Make sure the sensors are both on:
+* Respeck – move the sensor around and it should blink <span style="color:green">*green*</span> when it wakes up
+* Thingy – turn on using the switch on the bottom left edge and it should blink <span style="color:blue">*blue*</span> when it is on
+
+
+### NFC Pairing
+
+If your phone supports NFC you can simply tap it against the white surface of the Respeck to 
+get the Respeck ID autocompleted in the corresponding field.
+
+<p float="left">
+  <img src="../Images/nfc_respeck.jpeg" width="500" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+Similarly, you can tap the phone on the front side of the Thingy (here shown without the rubber case) 
+to get the Thingy ID autocompleted in the corresponding field.
+
+<p float="left">
+  <img src="../Images/nfc_thingy.jpeg" width="500" />
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+</p>
+
+### Scanning the Respeck QR code
+
+If your phone does not support NFC, you can scan the QR code of the Respeck instead.
+
+Every Respeck should have a QR code printed on its back. By pressing the Scan QR button, 
+a camera view will pop up and you will be able to scan the Respeck QR code to pair it to 
+your app. Only one Respeck can be paired with an app at one time. 
+
+<p float="left">
+  <img src="/Images/app_connect_page.jpg" width="300" /> 
+  <img src="../Images/qr_respeck.jpg" width="300" />
+</p>
+
+### Finding the Thingy ID
+
+Unfortunately the Nordic Cubes do not have a QR code attached to them but you can find their ID (MAC address) 
+on a label under the rubber case and NFC tag, as shown in the picture below.
+
+<img src="../Images/thingy_id.jpeg" width="500" alt="thingy ID" />
+
+You need to manually input this code under the “Thingy ID” field. 
+
+### Establishing the connection
+Once you have entered both sensors’ IDs you will be able to click the button *Pair sensors* 
+to start the Bluetooth service and connect to the sensors. 
+
+If you ever need to change the sensors you can scan the IDs of the new sensors and click on 
+*Pair sensors* again. This will restart the service with the new IDs.
+If you have any connection issues, you can click on *Restart connection* to restart the 
+Bluetooth service forcefully. 
+
+The sensors have differently coloured LEDs that change with connection states.
+
+Thingy:
+* <span style="color:blue">*Blue*</span> light -> sensor ON and NOT CONNECTED
+* <span style="color:green">*Green*</span> light -> sensor ON and CONNECTED
+* No light -> sensor OFF
+
+Respeck:
+-	<span style="color:green">*Green*</span> light blink -> sensor ON and NOT CONNECTED
+-	<span style="color:blue">*Blue*</span> light -> sensor ON and CONNECTED
+-	<span style="color:red">*Red*</span> light -> sensor ON and DISCONNECTED
+
+So, when you connect to them, you have to watch out for the Thingy to blink 
+<span style="color:green">*green*</span> and the Respeck to blink <span style="color:blue">*blue*</span>.
+
+## 6. Viewing live data
+
+You can view incoming data from both sensors in the “Watch live processing” activity. 
+This will show you two live graphs of the accelerometer data from the Respeck (top) and 
+Thingy (bottom). Both sensors should run at 25Hz.
+
+<p float="left">
+  <img src="/Images/app_welcome_page.jpg" width="300" /> 
+  <img src="../Images/app_live_data.jpg" width="300" />
+</p>
+
+## 7. Sensor placement
+
+### Respeck
+
+Everyone will need to wear the sensors in the same places to ensure consistency across the data.
+
+The **Respeck** sensor should be placed on the **left lower ribcage**, with the blue half against the skin. 
+Make sure that the Respeck is first put into the small plastic bag provided. 
+You should be able to read the Respeck label when placing it on your chest – this ensures 
+the sensor is held the right way up, as shown in the figure below. 
+
+Secure the sensor to the chest using the MeFix tape provided. 
+If you run out of tape you should let us know and we will provide you with more. 
+
+
+<img src="../Images/respeck_placement.png" width="630" alt="respeck placement" />
+
+### Thingy
+
+The Thingy sensor should be placed in the front right pocket of your trousers, with the circle placed in the upper right 
+corner and the USB port facing downwards.
+
+<img src="../Images/thingy_placement.png" width="300" alt="thingy placement" />
+
+## 8. Recording data
+
+Finally, you can record data in the *Record Data* activity. 
+Choose the appropriate Sensor type and Activity and please use the university student 
+number as the subject ID. You can enter any additional notes you have about the upcoming 
+recording. 
+
+You will be able to verify that your sensors are running as expected by watching the 
+Live Data fields at the bottom of the screen.
+
+<p float="left">
+  <img src="/Images/app_welcome_page.jpg" width="300" /> 
+  <img src="../Images/app_record_data.jpg" width="300" />
+</p>
+
+Hit Start Recording when you are all set up.
+When you are done with a recording, hit *Stop Recording*. If something goes wrong during the 
+recording you can cancel it by pressing the *Cancel Recording* button.
+
+Check out the [instructions from Lab 2](./Week%202%20Lab.md) for the detailed list of activities and more information 
+about how to redo recordings.
+
+For now, record a couple of activities of your choice.
+
+## 9. Obtaining the recorded files
+Files are saved on the phone’s internal memory as csv files, on the path:
+`Android > app > data > com.specknet.pdiotapp > files > Filename.csv`
+
+You can access these files either by:
+* connecting your phone to a computer via USB and checking the internal memory, or
+* navigating to this folder from a file browser app on your phone and send them via Bluetooth, email, message etc. 
+
+Depending on which Android version you are running, you might need additional apps rather than 
+the pre-installed ones to get to these files. 
+From Android version 11, you should use apps like [Total Commander](https://play.google.com/store/apps/details?id=com.ghisler.android.TotalCommander&hl=en_GB&gl=US) 
+to view hidden system files. 
+Any Android version lower than 11 will allow you to see these files in a normal file browser 
+on your phone. 
+
+The filename is formatted as follows: 
+`{sensorType}_{studentID}_{activityType}_{timestamp}.csv`
+
+This should ensure that each file has a unique name among all students. 
+
+If you are using a Redmi phone provided by us and you need to obtain the files via USB you 
+might need to restart the phone to see the new files appear in the file browser on your computer.
+
+# Next up
+
+Head over to [Lab 2](./Week%202%20Lab.md) to start collecting data and learn how to analyse it.

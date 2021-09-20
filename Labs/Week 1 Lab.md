@@ -159,7 +159,8 @@ that conda installed a dependency of numpy (a python package)...python!
 
 ### 4. Recommended setup
 * Conda environment with python 3.7
-* Jupyter notebooks + [Numpy](https://docs.scipy.org/doc/numpy-1.17.0/numpy-user-1.17.0.pdf) + [Pandas](https://pandas.pydata.org/pandas-docs/stable/getting_started/10min.html) + [Matplotlib](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) + [Tensorflow2](https://www.tensorflow.org/install).
+* Jupyter notebooks + [Numpy](https://docs.scipy.org/doc/numpy-1.17.0/numpy-user-1.17.0.pdf) +
+  [Pandas](https://pandas.pydata.org/) + [Matplotlib](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) + [Tensorflow2](https://www.tensorflow.org/install).
 
 # Android setup
 

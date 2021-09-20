@@ -1,8 +1,14 @@
 # pdiot-practical
 Practical handout and documentation for PDIoT.
 
-The tutorial information can be found in Tutorials.md. 
+The lab information can be found in the Labs folder. 
 
-Bootloader and test fimrwares for the Nordic NRF52-DK dev board are located in /NRF52-DK
+Bootloader and test fimrware for the Nordic NRF52-DK dev board are located in /NRF52-DK
 
-The collection app and data repository have been included as submodules. 
+The collection app and data repository have been included as submodules.
+
+To update the submodules run:
+```angular2html
+git submodule init
+git submodule update
+```

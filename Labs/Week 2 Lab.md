@@ -214,23 +214,24 @@ upload folder structure should look like this:
 
 ```
 .
-+-- s1234567
-|   +-- Respeck_s1234567_Sitting_{timestamp}.csv
-|   +-- Respeck_s1234567_Standing_{timestamp}.csv
-|   +-- ...
-|   +-- Thingy_s1234567_Standing_{timestamp}.csv
-|   +-- Thingy_s1234567_Standing_{timestamp}.csv
-|   +-- ...
-+-- s7654321
-|   +-- Respeck_s7654321_Sitting_{timestamp}.csv
-|   +-- Respeck_s7654321_Standing_{timestamp}.csv
-|   +-- ...
-|   +-- Thingy_s7654321_Standing_{timestamp}.csv
-|   +-- Thingy_s7654321_Standing_{timestamp}.csv
-|   +-- ...
++-- 2021
+|   +-- s1234567
+|   |   +-- Respeck_s1234567_Sitting_{timestamp}.csv
+|   |   +-- Respeck_s1234567_Standing_{timestamp}.csv
+|   |   +-- ...
+|   |   +-- Thingy_s1234567_Standing_{timestamp}.csv
+|   |   +-- Thingy_s1234567_Standing_{timestamp}.csv
+|   |   +-- ...
+|   +-- s7654321
+|   |   +-- Respeck_s7654321_Sitting_{timestamp}.csv
+|   |   +-- Respeck_s7654321_Standing_{timestamp}.csv
+|   |   +-- ...
+|   |   +-- Thingy_s7654321_Standing_{timestamp}.csv
+|   |   +-- Thingy_s7654321_Standing_{timestamp}.csv
+|   |   +-- ...
 ```
 
-Upload your data to the [shared repository](https://github.com/specknet/pdiot-data).
+Upload your data to the [shared repository](https://github.com/specknet/pdiot-data/tree/master/2021). Careful to upload it to the 2021 folder. 
 
 Be very careful with the upload. You will be graded automatically based on the files which you have uploaded.
 

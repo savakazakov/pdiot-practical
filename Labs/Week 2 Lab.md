@@ -203,7 +203,7 @@ Replace the test filepath with the path of one of your recordings. Then run all 
 There are additional comments and explanations in the Notebook about how to load files, plot them and 
 what to watch out when cleaning the data. 
 
-Please do not modify the structure of the data in other ways than the states ones. The goal is to have a 
+Please do not modify the structure of the data in other ways than the stated ones. The goal is to have a 
 cohesive dataset with which everyone can work.
 
 ## 8. Uploading your data to the shared repository
@@ -239,7 +239,8 @@ Do not delete or overwrite other people's data.
 
 # Introduction to Human Activity Recognition
 
-We have prepared a sample Jupyter Notebook to show you how to read the files stored by the Android app and make a simple accelerometer plot. You can find it [here](https://github.com/specknet/pdiot-practical/blob/master/Labs/Week%202%20-%20PDIoT%20data%20analysis.ipynb).
+We have prepared a sample Jupyter Notebook to show you how to preprocess some of the data.
+
 
 Some recommended readings for Human Activity Recognition papers are:
 * [A Study on Human Activity Recognition Using Accelerometer Data from Smartphones](https://www.sciencedirect.com/science/article/pii/S1877050914008643)

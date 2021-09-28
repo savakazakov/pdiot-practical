@@ -239,8 +239,7 @@ Do not delete or overwrite other people's data.
 
 # Introduction to Human Activity Recognition
 
-We have prepared a sample Jupyter Notebook to show you how to preprocess some of the data.
-
+We have prepared a [sample Jupyter Notebook](./Week%202%20-%20Introduction%20to%20Human%20Activity%20Recognition.ipynb) to show you how to preprocess some of the data.
 
 Some recommended readings for Human Activity Recognition papers are:
 * [A Study on Human Activity Recognition Using Accelerometer Data from Smartphones](https://www.sciencedirect.com/science/article/pii/S1877050914008643)

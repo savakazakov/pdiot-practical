@@ -233,6 +233,24 @@ upload folder structure should look like this:
 
 Upload your data to the [shared repository](https://github.com/specknet/pdiot-data/tree/master/2021). Careful to upload it to the 2021 folder. 
 
+### <span style="color: red">Read carefully ! </span>
+
+Due to new GitHub organization rules you will have to fork the repo and create a pull request for your upload. The pull request will be approved by one of the PDIoT moderators by the end of each day. 
+
+You can follow the full instructions here: https://github.com/firstcontributions/first-contributions
+
+Summary:
+
+1. Fork the pdiot-data repo
+
+2. On your forked repo, create a new branch (e.g. group-A-upload) and add your files to that branch
+
+3. Commit and push changes to your forked repo
+
+4. From your forked repo, create a pull request to pdiot-data/master in order to integrate your changes
+
+You can follow all of these steps from the command line, as well as just the web interface. 
+
 Be very careful with the upload. You will be graded automatically based on the files which you have uploaded.
 
 Do not delete or overwrite other people's data.

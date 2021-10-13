@@ -64,7 +64,7 @@ You have the entire codebase of the PDIoT app to take inspiration from. Some imp
 - bluetooth/BluetoothSpeckService.kt -> the main Bluetooth service. This is where we scan for devices, connect to the relevant ones and start the processing of each packet of data
 - utils/ThingyPacketDecoder.kt and utils/RespeckPacketDecoder.kt -> functions that decode the raw packet data into actual accel, gyro and mag values
 - utils/RespeckPacketHandler.kt and utils/ThingyPacketHandler.kt -> where you might want to start processing your data for classification
-- bluetooth/LiveDataActivity.kt -> the live data activity where you can see real-time graphs of the accelerometer data coming from both sensors. 
+- live/LiveDataActivity.kt -> the live data activity where you can see real-time graphs of the accelerometer data coming from both sensors. 
 
 In particular, [this line](https://github.com/specknet/pdiotapp/blob/master/app/src/main/java/com/specknet/pdiotapp/live/LiveDataActivity.kt#L61)
 in the LiveDataActivity file is where we listen for updates from the Respeck. A similar piece of code

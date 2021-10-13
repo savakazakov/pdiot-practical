@@ -66,7 +66,7 @@ You have the entire codebase of the PDIoT app to take inspiration from. Some imp
 - utils/RespeckPacketHandler.kt and utils/ThingyPacketHandler.kt -> where you might want to start processing your data for classification
 - bluetooth/LiveDataActivity.kt -> the live data activity where you can see real-time graphs of the accelerometer data coming from both sensors. 
 
-In particular, [this line](https://github.com/specknet/pdiotapp/blob/update_2021/app/src/main/java/com/specknet/pdiotapp/live/LiveDataActivity.kt#L61)
+In particular, [this line](https://github.com/specknet/pdiotapp/blob/master/app/src/main/java/com/specknet/pdiotapp/live/LiveDataActivity.kt#L61)
 in the LiveDataActivity file is where we listen for updates from the Respeck. A similar piece of code
 can be seen lower for the data coming from the Thingy. This would also be a good place where you can start 
 buffering data to form your sliding windows and send them to your chosen classifier.

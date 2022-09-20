@@ -22,9 +22,7 @@ Each student will be provided the following for Coursework 1 & 3:
 * A wearable Respeck sensor
 * Respeck accessories: plastic bags and MeFix tape
 * An mBed development board (NRF52-DK)
-* A Nordic Cube (Thingy)
-* The on-line ARM mBed compiler and software development environment.
-
+* A Nordic Cube (Thingy) - a compact multi-sensor prototyping platform based around the NRF52 SoC
 You will need a smarphone running Android 6.0 or higher to run the apps needed for the course. 
 If no one from your team owns an Android phone we can provide you with one upon a special request.
 
@@ -42,7 +40,6 @@ The activities to be recognised are:
 * Ascending and descending stairs
 * Desk work (working at a computer, writing, etc.)
 * General movement (sudden turns, bending down, getting up from chairs, anything else that doesn't qualify as an activity)
-* Falling (on the knees, on the back, on the sides)
 
 You will first collect data using two sensors:
 * the **Respeck** sensor, worn on the lower left ribcage, sampling accelerometer and gyroscope data at 25Hz 
@@ -58,10 +55,10 @@ You will then develop data analysis and machine learning methods for identifying
 
 At this point you will have a choice between:
 * developing Machine Learning models using the Respeck data and running the models on the Android app
-* developing Machine Learning models using the Thingy data and running the models on the Thingy firmware.
+* developing Machine Learning models using the Thingy data and running the models directly on the Thingy firmware.
 
 You will be briefly introduced to embedded programming concepts and you will be able to modify the Thingy
-firmware using the mBed development board.
+firmware using the mBed development board as a programming/testing interface.
 
 Use this week's tutorial to set up your development environment and to start collecting data.
 

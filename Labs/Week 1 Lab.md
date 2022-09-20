@@ -23,6 +23,8 @@ Each student will be provided the following for Coursework 1 & 3:
 * Respeck accessories: plastic bags and MeFix tape
 * An mBed development board (NRF52-DK)
 * A Nordic Cube (Thingy) - a compact multi-sensor prototyping platform based around the NRF52 SoC
+
+
 You will need a smarphone running Android 6.0 or higher to run the apps needed for the course. 
 If no one from your team owns an Android phone we can provide you with one upon a special request.
 

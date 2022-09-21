@@ -199,8 +199,7 @@ It contains multiple types of sensors but we will be mainly working with its mot
 
 Download the Thingy:52 app from [Google Play Store](https://play.google.com/store/apps/details?id=no.nordicsemi.android.nrfthingy&hl=en_GB&gl=US).
 Alternatively, you can download the [code from GitHub](https://github.com/NordicSemiconductor/Android-Nordic-Thingy) and 
-build the app directly on your phone. 
-
+build the app in Android Studio.
 ### Turning the Thingy on
 Remove the black rubber case of the Thingy. You will find a switch on its bottom side.
 

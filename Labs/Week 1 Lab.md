@@ -157,7 +157,7 @@ that conda installed a dependency of numpy (a python package)...python!
     * `conda env list`
 
 ### 4. Recommended setup
-* Conda environment with python 3.7
+* Conda environment with python 3. Last year we used python 3.7, but later versions are likely to work.
 * Jupyter notebooks + [Numpy](https://docs.scipy.org/doc/numpy-1.17.0/numpy-user-1.17.0.pdf) +
   [Pandas](https://pandas.pydata.org/) + [Matplotlib](https://matplotlib.org/tutorials/introductory/pyplot.html#sphx-glr-tutorials-introductory-pyplot-py) + [Tensorflow2](https://www.tensorflow.org/install).
 

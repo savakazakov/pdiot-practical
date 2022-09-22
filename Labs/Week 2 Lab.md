@@ -36,14 +36,12 @@ Each student in the class will need to collect data for the following activities
 * Ascending and descending stairs 
 * Desk work
 * General movement (sudden turns, bending down, getting up from chairs, anything else that doesn't qualify as an activity)
-* Falling (on the knees, on the back, on the sides)
 
 You will be using two types of sensors to collect data for these activities:
 * The **Respeck** sensor - worn on the lower left ribcage, attached with MeFix tape, sampling accelerometer and gyroscope data at 25Hz
 * The **Nordic Cube (Thingy)** - worn in the front right trouser pocket, sampling accelerometer, gyroscope and magnetometer data at 25Hz
 
-If you cannot collect parts of the data (e.g. collecting falling data if you have an injury), please let us know and we will
-find other ways to augment the data.
+If you cannot collect parts of the data (e.g. due to injury), please let us know and we will find other ways to augment the data.
 
 ## 2. Sensor placement
 
@@ -156,22 +154,6 @@ Sit down on a desk chair in a relaxed position and type something on your comput
 14.	**General movement**
 
 Make dynamic movements for 30 seconds. This includes sitting down on a chair, getting up from a chair, bending down, suddenly turning around etc. The most important point is to continue moving for the full 30 seconds.
-
-15.	**Falling on the knees**
-
-From a straight standing position, fall on your knees and stop on your hands. Do this for as many times as it takes to gather 30 seconds of falling data. You can use a pile of pillows to soften your fall.
-
-16.	**Falling on the back**
-
-From a straight standing position, fall on your back on a soft surface, preferably a bed or a mattress. Do this for as many times as it takes to gather 30 seconds of falling data.
-
-17.	**Falling on the left**
-
-From a straight standing position, fall on your left side on a soft surface, preferably a bed or a mattress. Do this for as many times as it takes to gather 30 seconds of falling data.
-
-18.	**Falling on the right**
-
-From a straight standing position, fall on your right side on a soft surface, preferably a bed or a mattress. Do this for as many times as it takes to gather 30 seconds of falling data.
 
 ## 6. Obtaining the recorded files
 

@@ -196,7 +196,7 @@ upload folder structure should look like this:
 
 ```
 .
-+-- 2021
++-- 2022
 |   +-- s1234567
 |   |   +-- Respeck_s1234567_Sitting_{timestamp}.csv
 |   |   +-- Respeck_s1234567_Standing_{timestamp}.csv
@@ -213,7 +213,7 @@ upload folder structure should look like this:
 |   |   +-- ...
 ```
 
-Upload your data to the [shared repository](https://github.com/specknet/pdiot-data/tree/master/2021). Careful to upload it to the 2021 folder. 
+Upload your data to the [shared repository](https://github.com/specknet/pdiot-data/tree/master/2022). Careful to upload it to the 2022 folder. 
 
 ### <span style="color: red">Read carefully ! </span>
 

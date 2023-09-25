@@ -1,0 +1,3 @@
+[submodule "pdiotapp"]
+	path = pdiotapp
+	url = https://github.com/savakazakov/pdiotapp.git

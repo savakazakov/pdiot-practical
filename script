@@ -1,5 +1,15 @@
 import os
 import shutil
+import pandas as pd
+import matplotlib.pyplot as plt
+from typing import Tuple
+import matplotlib.ticker as ticker
+import time
+import datetime
+
+# you do not need this if you are not working on google colab!
+from google.colab import drive
+drive.mount('/content/gdrive/')
 
 def list_files_in_directory(directory_path):
     try:
@@ -45,41 +55,33 @@ def block_until_y():
     while user_input.lower() != "y":
         user_input = input("Type 'y' to continue: ")
 
-def add_unprocessed_to_filename(filename):
-    # Split the filename into parts using underscores
-    parts = filename.split('_')
+def block_until_y_with_interval():
+    user_input = ""
 
-    # Check if there are at least three parts separated by underscores
-    if len(parts) >= 3:
-        # Insert "unprocessed" before the second to last part
-        parts.insert(-2, 'unprocessed')
-
-        # Join the parts back together with underscores
-        new_filename = '_'.join(parts)
-
-        return new_filename
-    else:
-        # If there are not enough parts, return the original filename
-        return filename
+    time.sleep(5)  # Wait for 1 second
+    
+    while user_input.lower() != "y":
+        user_input = input("Type 'y' to continue.")
+        
+    print("You typed 'y', continuing...")
 
 def process_files(file_list, destination_directory):
     for filename in file_list:
-        new_filename = add_unprocessed_to_filename_and_copy(filename, destination_directory)
+        filename_respeck = add_unprocessed_to_filename_and_copy(filename, destination_directory)
         
-        if isinstance(new_filename, str):
-            print(f"Modified filename: {new_filename}")
+        if isinstance(filename_respeck, str):
+            print(f"Modified filename: {filename_respeck}")
         else:
-            print(new_filename)
+            print(filename_respeck)
 
         # You can perform any desired actions on each filename here
         # For example, you can print the filename or perform some other operation
-        filename_respeck = new_filename
-        df_respeck = pd.read_csv(filename_respeck, header=5)
+        df_respeck = pd.read_csv(os.path.join(destination_directory, filename_respeck), header=5)
+        
+        plot_data(df_respeck, filename_respeck)
 
-        plot_data(df_respeck, "Respeck sitting and hyperventilating - accelerometer and gyroscope data")
-
-        block_until_y()
-        print("You typed 'y', so the program continues. Use this time to note down your indices.")
+        # print("You typed 'y', so the program continues. Use this time to note down your indices.")
+        block_until_y_with_interval()
 
         df_respeck['ind'] = df_respeck.index
 
@@ -89,7 +91,7 @@ def process_files(file_list, destination_directory):
 
         for i in range(int(to_trim)):
 
-          print(i+1, "Specify the range of the indexes that you would like to delete ----------------")
+          print(i+1, "Specify the range of the indexes that you would like to delete")
 
           range_trim_start = int(input("Starting at index: "))
           range_trim_end = int(input("Ending at index: "))
@@ -99,7 +101,7 @@ def process_files(file_list, destination_directory):
         
         print("RESULTING GRAPH -------------------------------------------------------------------")
         df_respeck.reset_index(inplace=True, drop=True)
-        plot_data(df_respeck, "Respeck ascending stairs normal - accelerometer and gyroscope data")
+        plot_data(df_respeck, filename_respeck)
 
         get_frequency(df_respeck)
 
@@ -127,23 +129,22 @@ def process_files(file_list, destination_directory):
 
         df_respeck['timestamp'] = timestamps
 
-        print("NEW FREQ: " + get_frequency(df_respeck))
+        print("NEW FREQ: " + str(get_frequency(df_respeck)))
 
-        print("CUR RECORDING LEN: " + get_recording_length(df_respeck))
+        print("CUR RECORDING LEN: " + str(get_recording_length(df_respeck)))
 
         get_recording_length(df_respeck[:760])
         df_respeck = df_respeck[:760]
 
-        print("NEW RECORDING LEN: " + get_recording_length(df_respeck))
+        print("NEW RECORDING LEN: " + str(get_recording_length(df_respeck)))
 
         plot_data(df_respeck, "New Graph")
 
-        block_until_y()
-        print("You typed 'y', so the program continues.")
+        block_until_y_with_interval()
 
         df_respeck
 
-        clean_filename = new_filename.replace("unprocessed", "clean")
+        clean_filename = filename_respeck.replace("unprocessed", "clean")
 
         df_respeck.to_csv(os.path.join(destination_directory,clean_filename))
       
@@ -153,8 +154,9 @@ file_list = list_files_in_directory(directory_path)
 
 if isinstance(file_list, list):
     print("List of filenames:")
-    for filename in file_list:
-        print(filename)
+    # for filename in file_list:
+    #     print(filename)
+        # add_unprocessed_to_filename_and_copy(filename, directory_path)
     
     print("\nProcessing files:")
     process_files(file_list, directory_path)

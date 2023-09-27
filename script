@@ -1,0 +1,162 @@
+import os
+import shutil
+
+def list_files_in_directory(directory_path):
+    try:
+        # Use os.listdir to get a list of filenames in the directory
+        filenames = os.listdir(directory_path)
+        
+        # Filter out subdirectories (if any) and keep only filenames
+        filenames = [filename for filename in filenames if os.path.isfile(os.path.join(directory_path, filename))]
+        
+        return filenames
+    except OSError as e:
+        # Handle exceptions, such as if the directory doesn't exist
+        return f"Error: {e}"
+
+def add_unprocessed_to_filename_and_copy(filename, destination_directory):
+    # Split the filename into parts using underscores
+    parts = filename.split('_')
+
+    # Check if there are at least three parts separated by underscores
+    if len(parts) >= 3:
+        # Insert "unprocessed" before the second to last part
+        parts.insert(-2, 'unprocessed')
+
+        # Join the parts back together with underscores to form the new filename
+        new_filename = '_'.join(parts)
+
+        try:
+            # Combine the destination directory with the new filename to create the full path
+            destination_path = os.path.join(destination_directory, new_filename)
+
+            # Use shutil.copy to make a copy of the original file with the new filename
+            shutil.copy(os.path.join(destination_directory, filename), destination_path)
+
+            return new_filename
+        except Exception as e:
+            return f"Error copying file: {e}"
+    else:
+        # If there are not enough parts, return the original filename
+        return filename
+
+def block_until_y():
+    user_input = ""
+    while user_input.lower() != "y":
+        user_input = input("Type 'y' to continue: ")
+
+def add_unprocessed_to_filename(filename):
+    # Split the filename into parts using underscores
+    parts = filename.split('_')
+
+    # Check if there are at least three parts separated by underscores
+    if len(parts) >= 3:
+        # Insert "unprocessed" before the second to last part
+        parts.insert(-2, 'unprocessed')
+
+        # Join the parts back together with underscores
+        new_filename = '_'.join(parts)
+
+        return new_filename
+    else:
+        # If there are not enough parts, return the original filename
+        return filename
+
+def process_files(file_list, destination_directory):
+    for filename in file_list:
+        new_filename = add_unprocessed_to_filename_and_copy(filename, destination_directory)
+        
+        if isinstance(new_filename, str):
+            print(f"Modified filename: {new_filename}")
+        else:
+            print(new_filename)
+
+        # You can perform any desired actions on each filename here
+        # For example, you can print the filename or perform some other operation
+        filename_respeck = new_filename
+        df_respeck = pd.read_csv(filename_respeck, header=5)
+
+        plot_data(df_respeck, "Respeck sitting and hyperventilating - accelerometer and gyroscope data")
+
+        block_until_y()
+        print("You typed 'y', so the program continues. Use this time to note down your indices.")
+
+        df_respeck['ind'] = df_respeck.index
+
+        to_trim = input("How many data ranges would you like to trim? ")
+
+        print("\n")
+
+        for i in range(int(to_trim)):
+
+          print(i+1, "Specify the range of the indexes that you would like to delete ----------------")
+
+          range_trim_start = int(input("Starting at index: "))
+          range_trim_end = int(input("Ending at index: "))
+
+          df_respeck = df_respeck[~((df_respeck['ind'] >= range_trim_start) & (df_respeck['ind'] <= range_trim_end))]
+          print("\n")
+        
+        print("RESULTING GRAPH -------------------------------------------------------------------")
+        df_respeck.reset_index(inplace=True, drop=True)
+        plot_data(df_respeck, "Respeck ascending stairs normal - accelerometer and gyroscope data")
+
+        get_frequency(df_respeck)
+
+        # Define the starting timestamp in milliseconds
+        start_timestamp_ms = df_respeck.timestamp[0]
+
+        # Define the number of timestamps you want to generate
+        num_timestamps = len(df_respeck)
+
+        # Calculate the time interval between timestamps in microseconds
+        microseconds_per_timestamp = int(1e6 / 25)
+
+        # Initialize a list to store the generated timestamps
+        timestamps = []
+
+        # Generate the timestamps
+        for i in range(num_timestamps):
+            timestamp = start_timestamp_ms + i * microseconds_per_timestamp // 1000  # Convert microseconds to milliseconds
+            timestamps.append(timestamp)
+
+        # Print the generated timestamps
+        # for timestamp in timestamps:
+        #    formatted_time = datetime.datetime.fromtimestamp(timestamp / 1000).strftime('%Y-%m-%d %H:%M:%S.%f')
+        #    print(timestamp, formatted_time[:-3])  # Print the timestamp with milliseconds
+
+        df_respeck['timestamp'] = timestamps
+
+        print("NEW FREQ: " + get_frequency(df_respeck))
+
+        print("CUR RECORDING LEN: " + get_recording_length(df_respeck))
+
+        get_recording_length(df_respeck[:760])
+        df_respeck = df_respeck[:760]
+
+        print("NEW RECORDING LEN: " + get_recording_length(df_respeck))
+
+        plot_data(df_respeck, "New Graph")
+
+        block_until_y()
+        print("You typed 'y', so the program continues.")
+
+        df_respeck
+
+        clean_filename = new_filename.replace("unprocessed", "clean")
+
+        df_respeck.to_csv(os.path.join(destination_directory,clean_filename))
+      
+# REPLACE THIS WITH YOUR G-DRIVE PATH.
+directory_path = "/content/gdrive/MyDrive/University of Edinburgh/files"
+file_list = list_files_in_directory(directory_path)
+
+if isinstance(file_list, list):
+    print("List of filenames:")
+    for filename in file_list:
+        print(filename)
+    
+    print("\nProcessing files:")
+    process_files(file_list, directory_path)
+else:
+    print(file_list)
